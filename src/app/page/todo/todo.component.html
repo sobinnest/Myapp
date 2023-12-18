@@ -1,0 +1,50 @@
+<div class="c-ToDoApp">
+  
+    <!-- ItemCreator.vue -->
+    <form class="c-ItemCreator">
+      <input type="text" class="c-ItemCreator__description" placeholder="e.g. type someting">
+      
+    </form>
+    <!-- ItemCreator.vue -->
+  
+    <!-- ItemsList.vue -->
+    <div class="c-ItemsList">
+      <p class="c-ItemsList__title">To-do</p>
+      <ul class="c-ItemsList__items">
+        <li class="c-ItemList__item">
+  
+          <!-- ListItem.vue -->
+          <div class="c-ListItem">
+            
+            <div class="c-ListItem__content">
+              <button class="c-ListItem__description">Create</button>
+            </div>
+            <div class="c-ListItem__secondaryActions">
+              <button class="c-ListItem__description">Remove</button>
+            </div>
+          </div>
+          <!-- ListItem.vue -->
+  
+        </li>
+      </ul>
+    </div>
+    <!-- ItemsList.vue -->
+    
+    <div class ="box p-5">
+        <ul class ="list">
+            @for(item of todos;track item.id)
+            {
+                <li class ="d-flex justify-content-between">
+                    <input type="checkbox">
+                    <p>{{item.title}}</p>
+                    <i class ="bi bi trash text-danger"></i>
+                </li>
+                
+            }
+        </ul>
+        </div>
+  
+  </div>
+
+
+

@@ -1,0 +1,140 @@
+/* App.vue */
+html {
+    min-height: 100%;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #345494;
+    background-color: #e2d1a0;
+    background-image: linear-gradient(to bottom, #5993F9, #437BEE);
+  }
+  
+  /* apply a natural box layout model to all elements, but allowing components to change */
+  /* More about this: https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .c-ToDoApp {
+    background-color: #fff;
+    max-width: 800px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 8px -1px rgba(42, 80, 154, 0.8);
+  }
+  
+  /* ItemCreator.vue */
+  .c-ItemCreator {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .c-ItemCreator__description,
+  .c-ItemCreator__add {
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+    line-height: 1.5em;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
+  .c-ItemCreator__description {
+    flex-grow: 1;
+    border: 1px solid #91a3c5;
+  }
+  .c-ItemCreator__add {
+    margin-left: 10px;
+    color: #fff;
+    background-color: #5088f4;
+    border: none;
+  }
+  
+  /* ItemsList.vue */
+  .c-ItemsList {
+    margin-bottom: 20px;
+  }
+  .c-ItemsList__title {
+    font-size: 0.75em;
+    font-weight: bold;
+    color: #2a457b;
+    text-transform: uppercase;
+    
+  }
+  .c-ItemsList__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  
+  /* ListItem.vue */
+  .c-ListItem {
+    display: flex;
+    align-items: center;
+  }
+  .c-ListItem__mainActions {
+    margin-right: 10px;
+  }
+  .c-ListItem__content {
+    flex-grow: 1;
+  }
+  .c-ListItem__secondaryActions {
+    margin-left: 10px;
+  }
+  
+  .c-ListItem__remove {
+    font-family: inherit;
+    color: inherit;
+    font-size: 0.75em;
+    line-height: 1.5em;
+    padding: 0 6px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #e03f3f;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition-duration: 0.3s;
+    transition-property: opacity;
+    transition-timing-function: ease-in-out;
+  }
+  
+  .c-ListItem:hover .c-ListItem__remove {
+    opacity: 1;
+  }
+  
+  /* Checked state */
+  .c-ListItem__mainActions,
+  .c-ListItem__description {
+    opacity: 1;
+    transition-duration: 1s;
+    transition-property: opacity;
+    transition-timing-function: ease-in-out;
+  }
+  .c-ListItem__description {
+    position: relative;
+  }
+  .c-ListItem__description::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: currentColor;
+    transition-duration: 1s;
+    transition-property: width;
+    transition-timing-function: ease-in-out;
+  }
+  .c-ListItem--checked .c-ListItem__mainActions,
+  .c-ListItem--checked .c-ListItem__description {
+    opacity: 0.5;
+  }
+  .c-ListItem--checked .c-ListItem__description::before {
+    width: 100%;
+  }
